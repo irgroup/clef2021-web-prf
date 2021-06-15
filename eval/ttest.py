@@ -599,6 +599,326 @@ def main():
 
     print(pd.DataFrame(_data).transpose().to_latex(float_format="%.4f"))
 
+    # Core18 - Google vs. DDG - Title
+    rpd_eval = RpdEvaluator(qrel_orig_path=QREL,
+                            run_b_orig_path='./data/runs/uwmrgx_core18_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core18_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core18_ddg_title/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core18_ddg_title/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core18 - Google vs. DDG - Title')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core18 - Google vs. DDG - Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path=QREL,
+                            run_b_orig_path='./data/runs/uwmrgx_core18_google_title_desc/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core18_google_title_desc/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core18_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core18_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core18 - Google vs. DDG - Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core18 - Google - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path=QREL,
+                            run_b_orig_path='./data/runs/uwmrgx_core18_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core18_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core18_google_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core18_google_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core18 - Google - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core18 - DDG - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path=QREL,
+                            run_b_orig_path='./data/runs/uwmrgx_core18_ddg_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core18_ddg_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core18_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core18_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core18 - DDG - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core17 - Google vs. DDG - Title
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/core17.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_core17_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core17_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core17_ddg_title/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core17_ddg_title/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core17 - Google vs. DDG - Title')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core17 - Google vs. DDG - Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/core17.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_core17_google_title_desc/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core17_google_title_desc/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core17_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core17_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core17 - Google vs. DDG - Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core17 - Google - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/core17.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_core17_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core17_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core17_google_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core17_google_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core17 - Google - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Core17 - DDG - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/core17.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_core17_ddg_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_core17_ddg_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_core17_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_core17_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Core17 - DDG - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust05 - Google vs. DDG - Title
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust05.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob05_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob05_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob05_ddg_title/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob05_ddg_title/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust05 - Google vs. DDG - Title')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust05 - Google vs. DDG - Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust05.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob05_google_title_desc/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob05_google_title_desc/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob05_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob05_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust05 - Google vs. DDG - Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust05 - Google - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust05.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob05_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob05_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob05_google_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob05_google_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust05 - Google - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust05 - DDG - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust05.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob05_ddg_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob05_ddg_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob05_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob05_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust05 - DDG - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust04 - Google vs. DDG - Title
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust04.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob04_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob04_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob04_ddg_title/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob04_ddg_title/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust04 - Google vs. DDG - Title')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust04 - Google vs. DDG - Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust04.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob04_google_title_desc/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob04_google_title_desc/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob04_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob04_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust04 - Google vs. DDG - Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust04 - Google - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust04.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob04_google_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob04_google_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob04_google_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob04_google_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust04 - Google - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
+    # Robust04 - DDG - Title vs. Title+Desc
+    rpd_eval = RpdEvaluator(qrel_orig_path='./data/qrels/robust04.txt',
+                            run_b_orig_path='./data/runs/uwmrgx_rob04_ddg_title/uwmrgx',
+                            run_a_orig_path='./data/runs/uwmrg_rob04_ddg_title/uwmrg',
+                            run_b_rep_path='./data/runs/uwmrgx_rob04_ddg_title_desc/uwmrgx',
+                            run_a_rep_path='./data/runs/uwmrg_rob04_ddg_title_desc/uwmrg')
+    rpd_eval.trim()
+    rpd_eval.evaluate()
+    pvals = rpd_eval.ttest()
+
+    print('Robust04 - DDG - Title vs. Title+Desc')
+    print('====================')
+    print('uwmrgx - P@10:', pvals['baseline']['P_10'])
+    print('uwmrgx -   AP:', pvals['baseline']['map'])
+    print('uwmrgx - nDCG:', pvals['baseline']['ndcg'])
+    print('uwmrg  - P@10:', pvals['advanced']['P_10'])
+    print('uwmrg  -   AP:', pvals['advanced']['map'])
+    print('uwmrg  - nDCG:', pvals['advanced']['ndcg'])
+    print()
+
 
 if __name__ == "__main__":
     main()
